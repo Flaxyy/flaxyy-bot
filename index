@@ -2332,7 +2332,7 @@ if True: #Functions
         return True
 
     def get_item_data(lang: str) -> dict:
-        res = requests.get("https://benbotfn.tk/api/v1/cosmetics/br", params={"lang": lang})
+        res = requests.get("https://fortnite-api.com/v2/cosmetics/br", params={"lang": lang})
         if res.status_code == 200:
             return res.json()
         return None
@@ -5904,7 +5904,7 @@ async def process_command(message: Union[fortnitepy.FriendMessage, fortnitepy.Pa
     elif args[0] in commands['addeditems']:
         try:
             async with aiohttp.ClientSession() as session:
-                res = await session.get("https://benbotfn.tk/api/v1/newCosmetics")
+                res = await session.get("https://fortnite-api.com/v2/cosmetics/br/new")
                 res = await res.json()
             flag = False
             items = res["items"]
