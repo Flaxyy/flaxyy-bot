@@ -2332,11 +2332,11 @@ if True: #Functions
         return True
 
     def get_item_data(lang: str) -> dict:
-        res = requests.get("https://fortnite-api.com/v2/cosmetics/br", params={"lang": lang})
+        res = requests.get("https://benbot.app/api/v1/cosmetics/br", params={"lang": lang})
         if res.status_code == 200:
             return res.json()
         return None
-
+        
     def store_item_data(langs: list) -> None:
         with ThreadPoolExecutor() as executor:
             futures = {executor.submit(get_item_data,lang): lang for lang in langs}
